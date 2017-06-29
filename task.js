@@ -7,6 +7,14 @@ let inputs = {
   data: process.argv[3]
 }
 
+if (!fs.existsSync('./tasks.json') ) {
+  fs.open('./tasks.json', 'w', ( error, data ) => {
+    fs.writeFile('./tasks.json', '[]', ( error, data ) => {
+      if (error) console.log(error)
+    })
+  })
+}
+
 if ( inputs.function === 'add' ) {
   addTodo( inputs.data )
 }
