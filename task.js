@@ -7,10 +7,10 @@ let inputs = {
   data: process.argv[3]
 }
 
-if (!fs.existsSync('./tasks.json') ) {
+if ( !fs.existsSync('./tasks.json') ) {
   fs.open('./tasks.json', 'w', ( error, data ) => {
     fs.writeFile('./tasks.json', '[]', ( error, data ) => {
-      if (error) console.log(error)
+      if ( error ) console.log( error )
     })
   })
 }
@@ -24,7 +24,7 @@ if ( inputs.function === 'list' ) {
     for (var i = 0; i < todos.length; i++) {
       console.log( todos[i].id + "  " + todos[i].description )
     }
-  } )
+  })
 }
 if ( inputs.function === 'done' ) {
   completeTodo( inputs.data )

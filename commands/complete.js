@@ -1,7 +1,7 @@
 fs = require('fs')
 var list = require( './list' )
 
-completeTodo = (id, callback) => {
+completeTodo = ( id, callback ) => {
 
   getTodos( (error, todos) => {
     if (error) callback(error)
@@ -9,8 +9,8 @@ completeTodo = (id, callback) => {
     console.log("Completed the task " + "'" + todos[id].description + "'")
 
     let incompleteTodos = todos.filter( (todo) => {
-      for (var key in todo) {
-        if (todo.id != id) {
+      for ( var key in todo ) {
+        if ( todo.id != id ) {
           return todo
         }
       }
